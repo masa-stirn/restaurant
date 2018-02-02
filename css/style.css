@@ -1,0 +1,421 @@
+* {
+    font-family: "poiret one";
+    padding: 0;
+}
+body {
+    margin: 0;
+}
+.container {
+    position: relative;
+    width: 90vw;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+.nav {
+    display: none;
+}
+.fixed-nav {
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    left: 0;
+}
+header {
+    background-image: url(../imgs/chili-664635.jpg);
+    background-size: cover;
+    margin-top: 80px;
+}
+nav {
+    background-color: #000909;
+    font-size: 30px;
+    height: 50px;
+}
+nav a {
+    color: #fff;
+    text-decoration: none;
+}
+nav a:hover {
+    color: #a8a8a8;
+}
+.nav-text {
+    padding-top: 5px;
+    width: 90vw;
+    padding-left: 5vw;
+}
+.chiliHouse {
+    float: right;
+}
+li {
+    list-style-type: none;
+}
+a:hover {
+    color: #c3c3c3;
+}
+h1 {
+    font-size: 36px;
+}
+h3 {
+    font-size: 24px;
+}
+h3,
+h4 {
+    color: #fff;
+}
+h2 {
+    margin-top: 50px;
+    border-bottom: 2px solid black;
+    grid-column: 1/-1;
+}
+.my-product {
+    border: 1px solid #fff;
+    padding: 1em;
+    position: relative;
+}
+.small-img {
+    max-width: 100%;
+}
+.price-sale {
+    text-decoration: line-through;
+}
+.product-section {
+    background: #000;
+}
+
+/*button*/
+
+button {
+    display: block;
+    padding: 8px 10px;
+    border: none;
+    width: 100px;
+    background: none;
+    border-radius: 11px;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 400;
+    vertical-align: middle;
+    position: relative;
+    z-index: 1;
+    border: 1px solid white;
+    font-family: "poiret one";
+    -webkit-backface-visibility: hidden;
+    margin-top: 15px;
+    overflow: hidden;
+    -webkit-transition: border-color 0.3s, color 0.3s;
+    transition: border-color 0.3s, color 0.3s;
+    -webkit-transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
+    transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
+}
+
+button:focus {
+    outline: none;
+}
+
+button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 150%;
+    height: 100%;
+    background: #37474f;
+    z-index: -1;
+    -webkit-transform: rotate3d(0, 0, 1, -45deg) translate3d(0, -3em, 0);
+    transform: rotate3d(0, 0, 1, -45deg) translate3d(0, -3em, 0);
+    -webkit-transform-origin: 0% 100%;
+    transform-origin: 0% 100%;
+    -webkit-transition: -webkit-transform 0.3s, opacity 0.3s, background-color 0.3s;
+    transition: transform 0.3s, opacity 0.3s, background-color 0.3s;
+}
+
+button:hover {
+    color: black;
+    border-color: white;
+    cursor: pointer;
+}
+
+button:hover::before {
+    opacity: 1;
+    background-color: white;
+    -webkit-transform: rotate3d(0, 0, 1, 0deg);
+    transform: rotate3d(0, 0, 1, 0deg);
+    -webkit-transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
+    transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
+}
+
+
+/* nav bar */
+
+a {
+    text-decoration: none;
+    color: #232323;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #000;
+}
+
+#menuToggle {
+    display: block;
+    position: relative;
+    top: 10px;
+    left: 5vw;
+    z-index: 1;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+#menuToggle input {
+    display: block;
+    width: 40px;
+    height: 32px;
+    position: absolute;
+    top: -7px;
+    left: -5px;
+    cursor: pointer;
+    opacity: 0;
+    /* hide this */
+    z-index: 2;
+    /* and place it over the hamburger */
+    -webkit-touch-callout: none;
+}
+
+
+/*
+ * Just a quick hamburger
+ */
+
+#menuToggle span {
+    display: block;
+    width: 33px;
+    height: 4px;
+    margin-bottom: 5px;
+    position: relative;
+    background: #fff;
+    border-radius: 3px;
+    z-index: 1;
+    transform-origin: 4px 0px;
+    transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0), background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0), opacity 0.55s ease;
+}
+
+#menuToggle span:first-child {
+    transform-origin: 0% 0%;
+}
+
+#menuToggle span:nth-last-child(2) {
+    transform-origin: 0% 100%;
+}
+
+
+/*
+ * Transform all the slices of hamburger
+ * into a crossmark.
+ */
+
+#menuToggle input:checked~span {
+    opacity: 1;
+    transform: rotate(45deg) translate(-2px, -1px);
+    background: #fff;
+}
+
+
+/*
+ * But let's hide the middle one.
+ */
+
+#menuToggle input:checked~span:nth-last-child(3) {
+    opacity: 0;
+    transform: rotate(0deg) scale(0.2, 0.2);
+}
+
+
+/*
+ * Ohyeah and the last one should go the other direction
+ */
+
+#menuToggle input:checked~span:nth-last-child(2) {
+    transform: rotate(-45deg) translate(0, -1px);
+}
+
+
+/*
+ * Make this absolute positioned
+ * at the top left of the screen
+ */
+
+#menu {
+    position: absolute;
+    width: 300px;
+    margin: -100px 0 0 -50px;
+    padding: 50px;
+    padding-top: 125px;
+    background: rgba(183, 0, 0, 0.9);
+    list-style-type: none;
+    -webkit-font-smoothing: antialiased;
+    /* to stop flickering of text in safari */
+    transform-origin: 0% 0%;
+    transform: translate(-100%, 0);
+    transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0);
+}
+
+#menu li {
+    padding: 10px 0;
+    font-size: 30px;
+}
+
+#menu a li:hover {
+    color: #0f0f0f;
+}
+
+
+/*
+  And let's slide it in from the left
+ */
+
+#menuToggle input:checked~ul {
+    transform: none;
+}
+
+
+/* The ribbons style */
+
+.corner-ribbon {
+    width: 200px;
+    background: #e43;
+    position: absolute;
+    top: 25px;
+    left: -50px;
+    text-align: center;
+    line-height: 50px;
+    letter-spacing: 1px;
+    color: #f0f0f0;
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+}
+
+div.my-product {
+    overflow: hidden;
+}
+
+
+/* Custom styles */
+
+.corner-ribbon.shadow {
+    box-shadow: 0 0 3px rgba(0, 0, 0, .3);
+}
+
+
+/* Position */
+
+.corner-ribbon.top-right {
+    top: 25px;
+    right: -50px;
+    left: auto;
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+}
+
+
+/* Colors */
+
+.corner-ribbon.red {
+    background: #e43;
+}
+
+.corner-ribbon.green {
+    background: #2c7;
+}
+
+.corner-ribbon.orange {
+    background: #e82;
+}
+
+.corner-ribbon.yellow {
+    background: #ec0;
+}
+
+
+/*  End The ribbons style */
+
+
+/* large description - will only be shown on click of Read more button*/
+
+.starter-lg {
+    margin-top: 20px;
+    padding: 8px;
+    background-color: #000;
+    color: #fff;
+    text-align: center;
+    z-index: 1000;
+}
+
+.starter-lg img,
+.starter-lg p {
+    width: 80%;
+    left: 0;
+    right: 0;
+    margin: auto;
+    margin-bottom: 5px;
+    text-align: left;
+}
+
+.center {
+    width: 100%;
+}
+
+.starter-lg button {
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+@media (min-width: 320px) {
+    header {
+        height: 35vh;
+    }
+}
+
+@media (min-width: 600px) {
+    header {
+        height: 55vh;
+    }
+    .cat-section {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+    .list-product {
+        border: solid 1px #7c1f17;
+    }
+    #menuToggle {
+        display: none;
+    }
+    .nav {
+        display: inline-block;
+    }
+    .nav ul li {
+        display: inline-block;
+        padding-right: 10px;
+    }
+    .nav ul {
+        margin: 0;
+    }
+}
+
+@media (min-width: 992px) {
+    header {
+        height: 75vh;
+    }
+    main {
+        margin: auto;
+        width: 970px;
+    }
+    .cat-section {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+    .page-header {
+        margin: 40px 0 20px;
+    }
+}
