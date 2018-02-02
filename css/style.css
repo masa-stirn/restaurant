@@ -69,18 +69,53 @@ h2 {
     grid-column: 1/-1;
 }
 .my-product {
-    border: 1px solid #fff;
     padding: 1em;
     position: relative;
 }
+.size-img{
+     width: 100%;
+    height: 200px;
+    overflow: hidden;
+}
 .small-img {
-    max-width: 100%;
+    width: 300px;
 }
 .price-sale {
     text-decoration: line-through;
 }
 .product-section {
     background: #000;
+}
+#model{
+       z-index:1000;
+       padding-top:100px;
+       position:fixed;
+       left:0;
+       top:0;
+       width:100%;
+       height:100%;
+       overflow:auto;
+       background-color:rgb(0,0,0);
+       background-color:rgba(0,0,0,0.4)
+    }
+.content{
+    margin:auto;
+    background-color:#000;
+    position:relative;
+    padding:20px;
+    outline:0;
+    max-width:600px}
+
+.gap{
+    margin-bottom: 1em;
+}
+footer{
+    margin-top: 10px;
+    font-size: 12px;
+    text-align: center;
+    background-color: #000;
+    color: #fff;
+    padding: 2px;
 }
 
 /*button*/
@@ -336,6 +371,9 @@ div.my-product {
 .corner-ribbon.yellow {
     background: #ec0;
 }
+.hide{
+    display: none;
+}
 
 
 /*  End The ribbons style */
@@ -344,12 +382,8 @@ div.my-product {
 /* large description - will only be shown on click of Read more button*/
 
 .starter-lg {
-    margin-top: 20px;
-    padding: 8px;
-    background-color: #000;
     color: #fff;
     text-align: center;
-    z-index: 1000;
 }
 
 .starter-lg img,
@@ -385,6 +419,7 @@ div.my-product {
     .cat-section {
         display: grid;
         grid-template-columns: 1fr 1fr;
+        grid-gap: 1px;
     }
     .list-product {
         border: solid 1px #7c1f17;
@@ -410,10 +445,10 @@ div.my-product {
     }
     main {
         margin: auto;
-        width: 970px;
     }
     .cat-section {
         grid-template-columns: 1fr 1fr 1fr;
+            grid-gap: 1px;
     }
     .page-header {
         margin: 40px 0 20px;

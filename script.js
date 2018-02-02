@@ -13,13 +13,11 @@ function getPlist(link){
     fetch(link).then(result=>result.json()).then(myData=>show(myData));
 }
 
-
 function catFunction(myData){
     myData.forEach(elem=>{
         const clone = catTemplate.cloneNode(true);
         clone.querySelector("h2").textContent=elem;
         clone.querySelector("section").id=elem;
-        console.log(clone);
         main.appendChild(clone);
     });
     getPlist(plistlink);
@@ -27,14 +25,48 @@ function catFunction(myData){
 
 function show(myData){
     myData.forEach(elem=>{
-        console.log(elem.category);
+        console.log(elem);
+        const model = document.querySelector("#model");
         const container = document.querySelector("#"+elem.category);
         const clone = prodTemplate.cloneNode(true);
+        clone.querySelector(".read-more").addEventListener("click", evt=>{
+                                                       model.classList.remove("hide");
+                                                       })
+        document.querySelector(".close").addEventListener("click", x=>{
+                                                       model.classList.add("hide");
+                                                       })
+
+
         clone.querySelector("img").src=imgLink + "small/" + elem.image + "-sm.jpg";
         clone.querySelector("h3").textContent=elem.name;
-        clone.querySelector("h4").textContent=elem.price + " DKK";
-        //if (elem.
+        clone.querySelector("h4").textContent="Price " + elem.price + " DKK";
+        let newPrice = elem.price - elem.discount;
+        clone.querySelector(".discount").textContent="NOW ONLY " + newPrice + " DKK";
+
+
+        if (elem.vegetarian===true) {
+            clone.querySelector(".green").classList.remove("hide");
+            if(elem.category==="drinks"){
+              clone.querySelector(".green").classList.add("hide");
+            }
+        }
+        if (elem.soldout===true) {
+            clone.querySelector(".orange").classList.remove("hide");
+        }
+        if (elem.alcohol>0) {
+            clone.querySelector(".alco").classList.remove("hide");
+        }
+        if (elem.discount>0) {
+            clone.querySelector(".red").classList.remove("hide");
+            clone.querySelector(".discount").classList.remove("hide");
+            clone.querySelector(".price").style.textDecoration = "line-through";
+
+        }
+
         container.appendChild(clone);
     })
 }
 
+
+//document.querySelector(link).addEventListener("click", ()=>{
+//})

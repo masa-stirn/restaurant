@@ -63,16 +63,31 @@
 
     <template id="productTemplate">
            <section class="product-section">
-            <div class="my-product">
+            <div class="my-product gap">
                 <a href="#">
-                    <img class="small-img" alt="product image">
+                   <div class="size-img">
+                    <img class="small-img" alt="product image"></div>
                 </a>
+                <div class="corner-ribbon top-right sticky green hide">Vegeterian</div>
+                <div class="corner-ribbon top-right sticky orange hide">Sold Out</div>
+                <div class="corner-ribbon top-right sticky red hide">Sale</div>
                 <h3 class="name">Kaal suppe</h3>
                 <h4 class="price">Price 69 DKK</h4>
-                <button>Read More</button>
+                <h4 class="discount hide">ON SALE 90 DKK</h4>
+                <button class="read-more">Read More</button>
+                <h4 class="alco hide">*contains alcohol</h4>
             </div>
             </section>
     </template>
+    <div id ="model" class="starter-lg hide">
+        <div class="content">
+            <h3 class="large-name">Baltisk Bonde Suppe</h3>
+            <img class="large-image" src="imgs/medium/baltiskbondesuppe-md.jpg" alt="baltiskbondesuppe">
+            <p class="large-description">Baltisk bondesuppe er en solid starter. Godt til dig, der skal drikke godt igennem under måltidet. Suppen består af ged, grønt og masser af løg.n</p>
+            <h4 class="large-price">Price 79 DKK</h4>
+            <div class="center"><button class="close">Close</button></div>
+        </div>
+    </div>
     <!--
     <main>
         <h2>STARTER</h2>
@@ -138,6 +153,10 @@
             <div class="center"><button>Close</button></div>
         </div>
     </div>-->
+
+    <footer>
+        <p> Designed By Masa Wu &copy; February 2018</p>
+    </footer>
 
 </div>
 <script src="script.js"></script>
