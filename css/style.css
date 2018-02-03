@@ -2,9 +2,11 @@
     font-family: "poiret one";
     padding: 0;
 }
+
 body {
     margin: 0;
 }
+
 .container {
     position: relative;
     width: 90vw;
@@ -13,114 +15,152 @@ body {
     right: 0;
     margin: auto;
 }
+
 .nav {
     display: none;
 }
+
 .fixed-nav {
     position: fixed;
     width: 100%;
     z-index: 1000;
     left: 0;
 }
+
 header {
     background-image: url(../imgs/chili-664635.jpg);
+    margin-top: 100px;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
     background-size: cover;
-    margin-top: 80px;
 }
+
 nav {
     background-color: #000909;
     font-size: 30px;
     height: 50px;
 }
+
 nav a {
     color: #fff;
     text-decoration: none;
 }
+
 nav a:hover {
     color: #a8a8a8;
 }
+
 .nav-text {
     padding-top: 5px;
     width: 90vw;
     padding-left: 5vw;
 }
+
 .chiliHouse {
     float: right;
 }
+
 li {
     list-style-type: none;
 }
+
 a:hover {
     color: #c3c3c3;
 }
+
 h1 {
     font-size: 36px;
 }
+
 h3 {
     font-size: 24px;
 }
+
 h3,
 h4 {
     color: #fff;
 }
+
+h4 {
+    margin-bottom: 0;
+}
+
 h2 {
+    font-size: 30px;
     margin-top: 50px;
     border-bottom: 2px solid black;
     grid-column: 1/-1;
 }
+
+p {
+    font-family: sans-serif;
+    font-weight: 200;
+    color: darkgray;
+}
+
 .my-product {
     padding: 1em;
     position: relative;
 }
-.size-img{
-     width: 100%;
+
+.size-img {
+    width: 100%;
     height: 200px;
     overflow: hidden;
 }
+
 .small-img {
     width: 300px;
+    transition: opacity 0.2s ease;
 }
+
+.small-img:hover {
+    opacity: 0.8;
+}
+
 .price-sale {
     text-decoration: line-through;
 }
+
 .product-section {
     background: #000;
+    border-radius: 2px;
 }
-#model{
-       z-index:1000;
-       padding-top:100px;
-       position:fixed;
-       left:0;
-       top:0;
-       width:100%;
-       height:100%;
-       overflow:auto;
-       background-color:rgb(0,0,0);
-       background-color:rgba(0,0,0,0.4)
-    }
-.content{
-    margin:auto;
-    background-color:#000;
-    position:relative;
-    padding:20px;
-    outline:0;
-    max-width:600px}
 
-.gap{
+#model {
+    z-index: 1000;
+    padding-top: 100px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.7)
+}
+
+.content {
+    margin: auto;
+    border-radius: 2px;
+    background-color: #000;
+    position: relative;
+    padding: 20px;
+    outline: 0;
+    max-width: 600px
+}
+
+.gap {
     margin-bottom: 1em;
 }
-footer{
-    margin-top: 10px;
-    font-size: 12px;
-    text-align: center;
-    background-color: #000;
-    color: #fff;
-    padding: 2px;
-}
+
 
 /*button*/
 
-button {
+button,
+.i,
+#button {
     display: block;
     padding: 8px 10px;
     border: none;
@@ -144,11 +184,15 @@ button {
     transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
 }
 
-button:focus {
+button:focus,
+.i:focus,
+#button:focus {
     outline: none;
 }
 
-button::before {
+button::before,
+.i::before,
+#button::before {
     content: '';
     position: absolute;
     top: 0;
@@ -165,19 +209,37 @@ button::before {
     transition: transform 0.3s, opacity 0.3s, background-color 0.3s;
 }
 
-button:hover {
-    color: black;
-    border-color: white;
+button:hover,
+.i:hover,
+#button:hover {
+    color: #000009;
+    border-color: #ffffee;
     cursor: pointer;
 }
 
-button:hover::before {
+button:hover::before,
+.i:hover::before,
+#button:hover::before {
     opacity: 1;
     background-color: white;
     -webkit-transform: rotate3d(0, 0, 1, 0deg);
     transform: rotate3d(0, 0, 1, 0deg);
     -webkit-transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
     transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
+}
+
+
+/* font awesome icon style*/
+
+.i {
+    display: inline-block;
+    padding: 4px 5px;
+    width: 29px;
+    color: #ffffee;
+    font-size: 25px;
+    margin: 4px;
+    margin-top: 15px;
+    border: 1px solid #ffffee;
 }
 
 
@@ -225,14 +287,14 @@ a:hover {
 
 #menuToggle span {
     display: block;
-    width: 33px;
-    height: 4px;
+    width: 29px;
+    height: 3px;
     margin-bottom: 5px;
     position: relative;
     background: #fff;
     border-radius: 3px;
     z-index: 1;
-    transform-origin: 4px 0px;
+    transform-origin: 3px 0px;
     transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0), background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0), opacity 0.55s ease;
 }
 
@@ -252,7 +314,7 @@ a:hover {
 
 #menuToggle input:checked~span {
     opacity: 1;
-    transform: rotate(45deg) translate(-2px, -1px);
+    transform: rotate(45deg) translate(-3px, -1px);
     background: #fff;
 }
 
@@ -345,12 +407,11 @@ div.my-product {
 
 /* Position */
 
-.corner-ribbon.top-right {
+.corner-ribbon.top-left {
     top: 25px;
-    right: -50px;
-    left: auto;
-    transform: rotate(45deg);
-    -webkit-transform: rotate(45deg);
+    left: -50px;
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
 }
 
 
@@ -371,7 +432,8 @@ div.my-product {
 .corner-ribbon.yellow {
     background: #ec0;
 }
-.hide{
+
+.hide {
     display: none;
 }
 
@@ -398,12 +460,34 @@ div.my-product {
 
 .center {
     width: 100%;
+    padding-bottom: 10px;
 }
 
-.starter-lg button {
+.starter-lg button,
+footer a {
     left: 0;
     right: 0;
     margin: auto;
+}
+
+footer {
+    margin-top: 50px;
+    font-size: 12px;
+    text-align: center;
+    background-color: #000;
+    color: #fff;
+    padding: 15px;
+}
+
+@media (min-width:560px) and (max-width: 720px) {
+    .my-product {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 1em;
+    }
+    h3 {
+        margin-top: 0;
+    }
 }
 
 @media (min-width: 320px) {
@@ -412,14 +496,14 @@ div.my-product {
     }
 }
 
-@media (min-width: 600px) {
+@media (min-width: 720px) {
     header {
         height: 55vh;
     }
     .cat-section {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        grid-gap: 1px;
+        grid-gap: 2px;
     }
     .list-product {
         border: solid 1px #7c1f17;
@@ -439,7 +523,7 @@ div.my-product {
     }
 }
 
-@media (min-width: 992px) {
+@media (min-width: 1100px) {
     header {
         height: 75vh;
     }
@@ -448,7 +532,7 @@ div.my-product {
     }
     .cat-section {
         grid-template-columns: 1fr 1fr 1fr;
-            grid-gap: 1px;
+        grid-gap: 4px;
     }
     .page-header {
         margin: 40px 0 20px;
