@@ -6,6 +6,12 @@
 body {
     margin: 0;
 }
+.filter a{
+    padding-right: 1em;
+}
+h5{
+    font-size: 20px;
+}
 
 .container {
     position: relative;
@@ -37,7 +43,7 @@ header {
 }
 
 nav {
-    background-color: #000909;
+    background-color: #171515;
     font-size: 30px;
     height: 50px;
 }
@@ -85,6 +91,9 @@ h4 {
 h4 {
     margin-bottom: 0;
 }
+h4 {
+    display: inline;
+}
 
 h2 {
     font-size: 30px;
@@ -118,13 +127,19 @@ p {
 .small-img:hover {
     opacity: 0.8;
 }
+.alco-div img {
+    width: 18px;
+}
+.alco-div{
+    margin-top: 10px;
+}
 
 .price-sale {
     text-decoration: line-through;
 }
 
 .product-section {
-    background: #000;
+    background: #171515;
     border-radius: 2px;
 }
 
@@ -144,7 +159,7 @@ p {
 .content {
     margin: auto;
     border-radius: 2px;
-    background-color: #000;
+    background-color: #171515;
     position: relative;
     padding: 20px;
     outline: 0;
@@ -212,7 +227,7 @@ button::before,
 button:hover,
 .i:hover,
 #button:hover {
-    color: #000009;
+    color: #171515;
     border-color: #ffffee;
     cursor: pointer;
 }
@@ -252,7 +267,7 @@ a {
 }
 
 a:hover {
-    color: #000;
+    color: #171515;
 }
 
 #menuToggle {
@@ -433,9 +448,7 @@ div.my-product {
     background: #ec0;
 }
 
-.hide {
-    display: none;
-}
+
 
 
 /*  End The ribbons style */
@@ -474,7 +487,7 @@ footer {
     margin-top: 50px;
     font-size: 12px;
     text-align: center;
-    background-color: #000;
+    background-color: #171515;
     color: #fff;
     padding: 15px;
 }
@@ -537,4 +550,8 @@ footer {
     .page-header {
         margin: 40px 0 20px;
     }
+}
+
+.hide {
+    display: none;
 }
