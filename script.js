@@ -6,6 +6,7 @@ const filterDiv = document.querySelector(".filter");
 const plistlink = "http://kea-alt-del.dk/t5/api/productlist";
 const imgLink = "http://kea-alt-del.dk/t5/site/imgs/";
 const catLink = "http://kea-alt-del.dk/t5/api/categories";
+const productLink = "http://kea-alt-del.dk/t5/api/product?id=";
 
 
 fetch(catLink).then(result => result.json()).then(catData => catFunction(catData));
@@ -35,19 +36,17 @@ function catFunction(myData) {
 
 function show(myData) {
     myData.forEach(elem => {
-
-        const model = document.querySelector("#model");
+        const modal = document.querySelector("#modal");
         const container = document.querySelector("#" + elem.category);
         const clone = prodTemplate.cloneNode(true);
-        clone.querySelector(".read-more").addEventListener("click", evt => {
-            model.classList.remove("hide");
-        });
-        document.querySelector(".close").addEventListener("click", x => {
-            model.classList.add("hide");
+        clone.querySelector(".read-more").addEventListener("click", () => {
+            fetch(productLink + elem.id).then(result=>result.json()).then(product=>showDetails(product));
+            modal.classList.remove("hide");
         });
         clone.querySelector("img").src = imgLink + "small/" + elem.image + "-sm.jpg";
         clone.querySelector("img").title = elem.shortdescription;
-        clone.querySelector("img").addEventListener("click", evt2 => {
+        clone.querySelector("img").addEventListener("click", () => {
+            fetch(productLink + elem.id).then(result=>result.json()).then(product=>showDetails(product));
             model.classList.remove("hide");
         });
         clone.querySelector("h3").textContent = elem.name;
@@ -69,7 +68,7 @@ function show(myData) {
             clone.querySelector(".alco-div").prepend(newImage);
         }
         if (elem.discount > 0) {
-            const newPrice = Math.ceil(elem.price - elem.price * elem.discount/100);
+            const newPrice = Math.round(elem.price - elem.price * elem.discount/100);
             clone.querySelector(".discount").textContent = "Now only " + newPrice + " DKK";
             clone.querySelector(".red").classList.remove("hide");
             clone.querySelector(".discount").classList.remove("hide");
@@ -81,7 +80,6 @@ function show(myData) {
 }
 
 function filter(myFilter){
-    console.log(document.querySelectorAll("main .cat-section"));
             document.querySelectorAll("main .cat-section").forEach(section=>{
                 if (section.id == myFilter || myFilter == "menu"){
                     section.classList.remove("hide");
@@ -91,3 +89,12 @@ function filter(myFilter){
                 }
             })
         }
+
+function showDetails(product){
+   modal.querySelector(".large-name").textContent=product.name;
+   modal.querySelector(".large-description").textContent=product.longdescription;
+   modal.querySelector(".large-image").src = imgLink + "large/" + product.image + ".jpg";
+            }
+document.querySelector(".close").addEventListener("click", x => {
+           modal.classList.add("hide");
+        });
