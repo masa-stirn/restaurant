@@ -148,7 +148,7 @@ p {
     border-radius: 2px;
 }
 
-#modal {
+#modal, #modal-img {
     z-index: 1000;
     padding-top: 100px;
     position: fixed;
@@ -582,7 +582,8 @@ animation: loading 1s 1s forwards;
 }
 
 .modal-lg img,
-.modal-lg p {
+.modal-lg p,
+#modal-img img{
     width: 80%;
     left: 0;
     right: 0;
@@ -602,6 +603,13 @@ footer a {
     right: 0;
     margin: auto;
 }
+#modal-img button {
+    left: 0;
+    right: 0;
+    margin: auto;
+    margin-top: 1em;
+}
+
 
 footer {
     margin-top: 50px;

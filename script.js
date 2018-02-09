@@ -10,10 +10,10 @@ const productLink = "http://kea-alt-del.dk/t5/api/product?id=";
 const spinner = document.querySelector(".spinner");
 
 
-window.addEventListener("load", hideSpinner)
+/*window.addEventListener("load", hideSpinner)
 function hideSpinner(){
 spinner.classList.add("hide");
-}
+}*/
 
 
 
@@ -40,10 +40,12 @@ function catFunction(myData) {
     });
     getPlist(plistlink);
 }
+const modalImg = document.querySelector("#modal-img");
 
 function show(myData) {
     myData.forEach(elem => {
         const modal = document.querySelector("#modal");
+
         const container = document.querySelector("#" + elem.category);
         const clone = prodTemplate.cloneNode(true);
         clone.querySelector(".read-more").addEventListener("click", () => {
@@ -53,8 +55,8 @@ function show(myData) {
         clone.querySelector("img").src = imgLink + "small/" + elem.image + "-sm.jpg";
         clone.querySelector("img").title = elem.shortdescription;
         clone.querySelector("img").addEventListener("click", () => {
-            fetch(productLink + elem.id).then(result => result.json()).then(product => showDetails(product));
-            model.classList.remove("hide");
+            fetch(productLink + elem.id).then(result => result.json()).then(product2 => showDetails2(product2));
+            modalImg.classList.remove("hide");
         });
         clone.querySelector("h3").textContent = elem.name;
         clone.querySelector("h4 span").textContent = elem.price;
@@ -126,6 +128,22 @@ document.querySelector(".close").addEventListener("click", x => {
     modal.querySelector(".spinner").style.display="block";
 
 });
+
+//modal img
+function showDetails2(product2) {
+    modalImg.querySelector(".large-image2").src = imgLink + "large/" + product2.image + ".jpg";
+    setTimeout(function () {
+        modalImg.querySelector(".large-image2").style.display = "block";
+        modalImg.querySelector(".spinner").style.display="none";
+    }, 300);
+}
+document.querySelector(".close2").addEventListener("click", x => {
+    modalImg.classList.add("hide");
+    modalImg.querySelector(".large-image2").style.display = "none";
+    modalImg.querySelector(".spinner").style.display="block";
+
+});
+
 
 //Sale filter
 const checkbox = document.querySelector("#trigger");
