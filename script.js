@@ -114,14 +114,17 @@ function showDetails(product) {
     }
     modal.querySelector(".large-image").src = imgLink + "large/" + product.image + ".jpg";
     setTimeout(function () {
-        modal.querySelector(".large-image").style.opacity = 1;
+        modal.querySelector(".large-image").style.display = "block";
+        modal.querySelector(".spinner").style.display="none";
     }, 300);
 }
 document.querySelector(".close").addEventListener("click", x => {
     modal.classList.add("hide");
     modal.querySelector(".large-name").textContent = "Loading...";
     modal.querySelector(".large-description").textContent = "";
-    modal.querySelector(".large-image").style.opacity = 0;
+    modal.querySelector(".large-image").style.display = "none";
+    modal.querySelector(".spinner").style.display="block";
+
 });
 
 //Sale filter
