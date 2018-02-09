@@ -170,6 +170,48 @@ p {
     margin-bottom: 1em;
 }
 
+/* filter style*/
+.filter-sale {
+    margin-top: 1em;
+}
+.filter a{
+    color:#fff;
+}
+.filter a:hover{
+    color:gray;
+}
+.filter{
+    margin-top: 1.5em;
+    background-color: #171515;
+    color: #fff;
+    padding: 1em;
+    border-radius: 3px;
+}
+.filter h5{
+    margin:0;
+}
+.filter h5{
+    margin-bottom: 0.5em;
+}
+.filter-by{
+    padding-top: 0.5em;
+}
+/*style by data category*/
+.product-section[data-category="starter"]{
+    background-color: #3c3c3c;
+}
+.product-section[data-category="main"]{
+    background-color: #3c3c3c;
+}
+.product-section[data-category="drinks"]{
+    background-color: #3c3c3c;
+}
+.product-section[data-category="dessert"]{
+    background-color: #3c3c3c;
+}
+.product-section[data-category="sideorders"]{
+    background-color: #3c3c3c;
+}
 
 /*button*/
 
@@ -381,7 +423,9 @@ a:hover {
 #menu a li:hover {
     color: #0f0f0f;
 }
-
+#all{
+    display: none;
+}
 
 /*
   And let's slide it in from the left

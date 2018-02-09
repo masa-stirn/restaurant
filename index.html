@@ -53,7 +53,20 @@
     <header id="top">
     </header>
     <div class="filter">
-        <h5>Sort by Catagory</h5>
+        <h5>Show only</h5>
+    <form action="#" method="POST">
+    <div class="filter-sale">
+      Sale: <input type="checkbox" id="trigger" name="question">
+    </div>
+    <div class="filter-vegi">
+      Vegetarian: <input type="checkbox" id="trigger2" name="question">
+    </div>
+       <h5 class="filter-by">Category</h5>
+        </form>
+        </div>
+    <div class="filter">
+        <h5>Sort by</h5>
+        <button class="sort-button">Price</button>
     </div>
     <main>
     </main>
@@ -66,6 +79,7 @@
 
     <template id="productTemplate">
            <section class="product-section">
+           <div class="filter-me">
             <div class="my-product gap">
                 <div class="img-g">
                       <a href="#">
@@ -85,6 +99,7 @@
                     <h4 class="alco hide">Contains alcohol</h4></div>
                 </div>
             </div>
+            </div>
             </section>
     </template>
     <div id ="modal" class="modal-lg hide">
@@ -95,72 +110,6 @@
             <div class="center"><button class="close">Close</button></div>
         </div>
     </div>
-    <!--
-    <main>
-        <h2>STARTER</h2>
-        <section>
-            <div class="my-product">
-                <a href="#">
-                    <img class="small-img" src="imgs/small/kaalsuppe-sm.jpg" alt="kaal suppe">
-                </a>
-                <div class="corner-ribbon top-right sticky green">Vegeterian</div>
-                <h3 class="name">Kaal suppe</h3>
-                <h4 class="price">Price 69 DKK</h4>
-                <button>Read More</button>
-            </div>
-            <div class="my-product">
-                <a href="#">
-                    <img class="small-img" src="imgs/small/borsjtj-sm.jpg" alt="Borsjtj">
-                </a>
-                <h3 class="name">Borsjtj</h3>
-                <h4 class="price">Price 99 DKK</h4>
-                <button>Read More</button>
-            </div>
-            <div class="my-product">
-                <a href="#">
-                    <img class="small-img" src="imgs/small/baltiskbondesuppe-sm.jpg" alt="baltisk bonde suppe">
-                </a>
-                <div class="corner-ribbon top-right sticky orange">Sold Out</div>
-                <h3 class="name">Baltisk bonde suppe</h3>
-                <h4 class="price">Price 79 DKK</h4>
-                <button>Read More</button>
-            </div>
-        </section>
-        <h2>MAIN</h2>
-        <section>
-            <div class="my-product">
-                <a href="#">
-                    <img class="small-img" src="imgs/small/bochkarev-sm.jpg" alt="bochkarev">
-                </a>
-                <h3 class="name">Bochkarev beer</h3>
-                <h4 class="price">Price 55 DKK</h4>
-                <h4 class="alco">*contains alcohol</h4>
-                <button>Read More</button>
-            </div>
-
-            <div class="my-product">
-                <a href="#">
-                    <img class="small-img" src="imgs/small/boef-sm.jpg" alt="boef">
-                </a>
-                <div class="corner-ribbon top-right sticky red">Sale</div>
-                <h3 class="name">Boef</h3>
-                <h4 class="price-sale">Price 105 DKK</h4>
-                <h4 class="discount">ON SALE 90 DKK</h4>
-                <button>Read More</button>
-            </div>
-        </section>-->
-
-    <!-- larger
-    <div class="starter-lg">
-        <div class="content">
-            <h3 class="large-name">Baltisk Bonde Suppe</h3>
-            <img class="large-image" src="imgs/medium/baltiskbondesuppe-md.jpg" alt="baltiskbondesuppe">
-            <p class="large-description">Baltisk bondesuppe er en solid starter. Godt til dig, der skal drikke godt igennem under måltidet. Suppen består af ged, grønt og masser af løg.n</p>
-            <h4 class="large-price">Price 79 DKK</h4>
-            <div class="center"><button>Close</button></div>
-        </div>
-    </div>-->
-
     <footer>
        <div class="center"><a id="button" href="#top">To the top</a></div>
         <div class="icons">
@@ -169,7 +118,6 @@
             <span class="i"><i class="fab fa-twitter"></i></span>
             <span class="i"><i class="fas fa-home"></i></span>
             <span class="i"><i class="fas fa-at"></i>
-
 </span>
         </div>
         <p> Designed By Masa Wu &copy; February 2018</p>

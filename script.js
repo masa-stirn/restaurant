@@ -15,20 +15,19 @@ function getPlist(link) {
 }
 
 function catFunction(myData) {
-    myData.unshift("menu");
+    myData.unshift("all");
     myData.forEach(elem => {
         const clone = catTemplate.cloneNode(true);
         clone.querySelector("h2").textContent = elem.charAt(0).toUpperCase() + elem.slice(1);
         clone.querySelector("section").id = elem;
         main.appendChild(clone);
 
-        //filter
+        //Category filter
         const a = document.createElement("a");
         a.textContent = elem;
         a.href = "#";
         a.addEventListener("click", () => filter(elem));
         filterDiv.appendChild(a);
-
     });
     getPlist(plistlink);
 }
@@ -50,12 +49,16 @@ function show(myData) {
         });
         clone.querySelector("h3").textContent = elem.name;
         clone.querySelector("h4 span").textContent = elem.price;
+        clone.querySelector(".product-section").dataset.price=elem.price;
 
         if (elem.vegetarian === true && elem.category != "drinks") {
             clone.querySelector(".green").classList.remove("hide");
+            clone.querySelector(".product-section").classList.add("vegi");
+
         }
         if (elem.soldout === true) {
             clone.querySelector(".orange").classList.remove("hide");
+
         }
         if (elem.alcohol) { // zero is false = implicit false
             clone.querySelector(".alco").classList.remove("hide");
@@ -72,19 +75,26 @@ function show(myData) {
             clone.querySelector(".discount").classList.remove("hide");
             clone.querySelector(".price").style.textDecoration = "line-through";
             clone.querySelector(".price").style.color = "red";
+            clone.querySelector(".product-section").classList.add("onSale");
+            clone.querySelector(".product-section").dataset.price=newPrice;
         }
+        clone.querySelector(".product-section").dataset.category=elem.category;
         container.appendChild(clone);
     })
+   sortPriceFunction();
 }
+
+
 function filter(myFilter) {
     document.querySelectorAll("main .cat-section").forEach(section => {
-        if (section.id == myFilter || myFilter == "menu") {
+        if (section.id == myFilter || myFilter == "all") {
             section.classList.remove("hide");
         } else {
             section.classList.add("hide");
         }
     })
 }
+
 function showDetails(product) {
     modal.querySelector(".large-name").textContent = product.name;
     if (product.longdescription) {
@@ -103,3 +113,62 @@ document.querySelector(".close").addEventListener("click", x => {
     modal.querySelector(".large-description").textContent = "";
     modal.querySelector(".large-image").style.opacity = 0;
 });
+
+//Sale filter
+const checkbox = document.querySelector("#trigger");
+checkbox.addEventListener("change", () => {
+    if (checkbox.checked) {
+        //Hide all sections that dont contain class onSale
+        document.querySelectorAll(".product-section").forEach((elem) => {
+            console.log(elem.classList.contains("onSale"));
+            if (!elem.classList.contains("onSale")) {
+                elem.classList.add("hide");
+            }
+        })
+    } else { //show everything
+        document.querySelectorAll(".product-section").forEach((elem) => {
+            elem.classList.remove("hide");
+        })
+    }
+})
+
+//Veggie filter
+const checkbox2 = document.querySelector("#trigger2");
+checkbox2.addEventListener("change", () => {
+    if (checkbox2.checked) {
+        //Hide all sections that dont contain class onSale
+        document.querySelectorAll(".product-section").forEach((elem) => {
+            //console.log(elem.classList.contains("vegi"));
+            //const onSale = document.querySelector(".onSale");
+            if (!elem.classList.contains("vegi")) {
+                elem.classList.add("hide");
+            }
+        })
+    } else { //show everything
+        document.querySelectorAll(".product-section").forEach((elem) => {
+            elem.classList.remove("hide");
+        })
+    }
+})
+
+function sortPriceFunction(){
+//Sort by Price
+        //grab the array with all the prices
+        //const prices = elem.price;
+        const prices = document.querySelectorAll(".product-section");
+
+        const sortButton = document.querySelector(".sort-button");
+        sortButton.addEventListener("click", () => {
+            //store prices from the nodeList into the array
+            let asArray = [...prices];
+
+            asArray.sort(function(a, b){return a.dataset.price - b.dataset.price});
+            console.log(asArray)
+
+            asArray.forEach(el=>{
+                console.log(el.dataset)
+                document.querySelector("#" + el.dataset.category).appendChild(el);
+            })
+        })
+
+}
