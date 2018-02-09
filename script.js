@@ -7,6 +7,15 @@ const plistlink = "http://kea-alt-del.dk/t5/api/productlist";
 const imgLink = "http://kea-alt-del.dk/t5/site/imgs/";
 const catLink = "http://kea-alt-del.dk/t5/api/categories";
 const productLink = "http://kea-alt-del.dk/t5/api/product?id=";
+const spinner = document.querySelector(".spinner");
+
+
+window.addEventListener("load", hideSpinner)
+function hideSpinner(){
+spinner.classList.add("hide");
+}
+
+
 
 fetch(catLink).then(result => result.json()).then(catData => catFunction(catData));
 
