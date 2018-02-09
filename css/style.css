@@ -6,10 +6,12 @@
 body {
     margin: 0;
 }
-.filter a{
+
+.filter a {
     padding-right: 1em;
 }
-h5{
+
+h5 {
     font-size: 20px;
 }
 
@@ -91,6 +93,7 @@ h4 {
 h4 {
     margin-bottom: 0;
 }
+
 h4 {
     display: inline;
 }
@@ -127,10 +130,12 @@ p {
 .small-img:hover {
     opacity: 0.8;
 }
+
 .alco-div img {
     width: 18px;
 }
-.alco-div{
+
+.alco-div {
     margin-top: 10px;
 }
 
@@ -170,48 +175,54 @@ p {
     margin-bottom: 1em;
 }
 
+
 /* filter style*/
+
 .filter-sale {
     margin-top: 1em;
 }
-.filter a{
-    color:#fff;
+
+.filter a {
+    color: #fff;
 }
-.filter a:hover{
-    color:gray;
+
+.filter a:hover {
+    color: gray;
 }
-.filter{
+
+.filter {
     margin-top: 1.5em;
     background-color: #171515;
     color: #fff;
     padding: 1em;
     border-radius: 3px;
 }
-.filter h5{
-    margin:0;
+
+.filter h5 {
+    margin: 0;
 }
-.filter h5{
+
+.filter h5 {
     margin-bottom: 0.5em;
 }
-.filter-by{
+
+.filter-by {
     padding-top: 0.5em;
 }
+
+
 /*style by data category*/
-.product-section[data-category="starter"]{
-    background-color: #3c3c3c;
+
+
+.product-section[data-category="starter"],
+.product-section[data-category="main"],
+.product-section[data-category="drinks"],
+.product-section[data-category="dessert"],
+.product-section[data-category="sideorders"] {
+   background: rgba(36,36,35,1);
+   background: linear-gradient(to bottom, rgba(36,36,35,1) 0%, rgba(15,15,15,1) 100%);
 }
-.product-section[data-category="main"]{
-    background-color: #3c3c3c;
-}
-.product-section[data-category="drinks"]{
-    background-color: #3c3c3c;
-}
-.product-section[data-category="dessert"]{
-    background-color: #3c3c3c;
-}
-.product-section[data-category="sideorders"]{
-    background-color: #3c3c3c;
-}
+
 
 /*button*/
 
@@ -423,9 +434,11 @@ a:hover {
 #menu a li:hover {
     color: #0f0f0f;
 }
-#all{
+
+#all {
     display: none;
 }
+
 
 /*
   And let's slide it in from the left
@@ -477,6 +490,7 @@ div.my-product {
 /* Colors */
 
 .corner-ribbon.red {
+    opacity: 0;
     background: #e43;
 }
 
@@ -485,14 +499,12 @@ div.my-product {
 }
 
 .corner-ribbon.orange {
-    background: #e82;
+    background: #a5a5a5;
 }
 
 .corner-ribbon.yellow {
     background: #ec0;
 }
-
-
 
 
 /*  End The ribbons style */

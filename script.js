@@ -58,6 +58,7 @@ function show(myData) {
         }
         if (elem.soldout === true) {
             clone.querySelector(".orange").classList.remove("hide");
+            clone.querySelector("img").style.filter="grayscale()";
 
         }
         if (elem.alcohol) { // zero is false = implicit false
@@ -150,13 +151,11 @@ checkbox2.addEventListener("change", () => {
         })
     }
 })
-
-function sortPriceFunction(){
 //Sort by Price
+function sortPriceFunction(){
         //grab the array with all the prices
         //const prices = elem.price;
         const prices = document.querySelectorAll(".product-section");
-
         const sortButton = document.querySelector(".sort-button");
         sortButton.addEventListener("click", () => {
             //store prices from the nodeList into the array
@@ -170,5 +169,5 @@ function sortPriceFunction(){
                 document.querySelector("#" + el.dataset.category).appendChild(el);
             })
         })
-
 }
+
