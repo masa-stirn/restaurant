@@ -184,10 +184,13 @@ p {
 
 .filter a {
     color: #fff;
+    padding: 0.2em;
+    margin: 0.5em;
 }
 
 .filter a:hover {
-    color: gray;
+    color: #fff;
+    border-bottom: 1px solid white;
 }
 
 .filter {
@@ -209,6 +212,10 @@ p {
 .filter-by {
     padding-top: 0.5em;
 }
+.filter .active{
+    color: gray;
+}
+
 
 
 /*style by data category*/
@@ -582,8 +589,7 @@ animation: loading 1s 1s forwards;
 }
 
 .modal-lg img,
-.modal-lg p,
-#modal-img img{
+.modal-lg p{
     width: 80%;
     left: 0;
     right: 0;
@@ -604,9 +610,6 @@ footer a {
     margin: auto;
 }
 #modal-img button {
-    left: 0;
-    right: 0;
-    margin: auto;
     margin-top: 1em;
 }
 
@@ -634,7 +637,9 @@ footer {
 @media (min-width: 320px) {
     header {
         height: 35vh;
+        /*background-attachment: static;*/
     }
+
 }
 
 @media (min-width: 720px) {

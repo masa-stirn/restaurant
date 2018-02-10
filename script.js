@@ -23,6 +23,7 @@ function getPlist(link) {
     fetch(link).then(result => result.json()).then(myData => show(myData));
 }
 
+
 function catFunction(myData) {
     myData.unshift("all");
     myData.forEach(elem => {
@@ -34,11 +35,13 @@ function catFunction(myData) {
         //Category filter
         const a = document.createElement("a");
         a.textContent = elem;
-        a.href = "#";
+        a.href = "#sort";
         a.addEventListener("click", () => filter(elem));
         filterDiv.appendChild(a);
+
     });
     getPlist(plistlink);
+    document.querySelector(".filter a").classList.add("active");
 }
 const modalImg = document.querySelector("#modal-img");
 
@@ -60,7 +63,7 @@ function show(myData) {
         });
         clone.querySelector("h3").textContent = elem.name;
         clone.querySelector("h4 span").textContent = elem.price;
-        clone.querySelector(".product-section").dataset.price=elem.price;
+        clone.querySelector(".product-section").dataset.price = elem.price;
 
         if (elem.vegetarian === true && elem.category != "drinks") {
             clone.querySelector(".green").classList.remove("hide");
@@ -69,7 +72,7 @@ function show(myData) {
         }
         if (elem.soldout === true) {
             clone.querySelector(".orange").classList.remove("hide");
-            clone.querySelector("img").style.filter="grayscale()";
+            clone.querySelector("img").style.filter = "grayscale()";
 
         }
         if (elem.alcohol) { // zero is false = implicit false
@@ -88,12 +91,12 @@ function show(myData) {
             clone.querySelector(".price").style.textDecoration = "line-through";
             clone.querySelector(".price").style.color = "red";
             clone.querySelector(".product-section").classList.add("onSale");
-            clone.querySelector(".product-section").dataset.price=newPrice;
+            clone.querySelector(".product-section").dataset.price = newPrice;
         }
-        clone.querySelector(".product-section").dataset.category=elem.category;
+        clone.querySelector(".product-section").dataset.category = elem.category;
         container.appendChild(clone);
     })
-   sortPriceFunction();
+    sortPriceFunction();
 }
 
 
@@ -104,6 +107,15 @@ function filter(myFilter) {
         } else {
             section.classList.add("hide");
         }
+    })
+    document.querySelectorAll(".filter a").forEach(filLink => {
+        filLink.addEventListener("click", function () {
+            filLink.classList.add("active");
+            console.log("works")
+        })
+        if (filLink.classList.contains("active")){
+              filLink.classList.remove("active")
+            }
     })
 }
 
@@ -117,7 +129,7 @@ function showDetails(product) {
     modal.querySelector(".large-image").src = imgLink + "large/" + product.image + ".jpg";
     setTimeout(function () {
         modal.querySelector(".large-image").style.display = "block";
-        modal.querySelector(".spinner").style.display="none";
+        modal.querySelector(".spinner").style.display = "none";
     }, 300);
 }
 document.querySelector(".close").addEventListener("click", x => {
@@ -125,7 +137,7 @@ document.querySelector(".close").addEventListener("click", x => {
     modal.querySelector(".large-name").textContent = "Loading...";
     modal.querySelector(".large-description").textContent = "";
     modal.querySelector(".large-image").style.display = "none";
-    modal.querySelector(".spinner").style.display="block";
+    modal.querySelector(".spinner").style.display = "block";
 
 });
 
@@ -134,13 +146,13 @@ function showDetails2(product2) {
     modalImg.querySelector(".large-image2").src = imgLink + "large/" + product2.image + ".jpg";
     setTimeout(function () {
         modalImg.querySelector(".large-image2").style.display = "block";
-        modalImg.querySelector(".spinner").style.display="none";
+        modalImg.querySelector(".spinner").style.display = "none";
     }, 300);
 }
 document.querySelector(".close2").addEventListener("click", x => {
     modalImg.classList.add("hide");
     modalImg.querySelector(".large-image2").style.display = "none";
-    modalImg.querySelector(".spinner").style.display="block";
+    modalImg.querySelector(".spinner").style.display = "block";
 
 });
 
@@ -182,22 +194,23 @@ checkbox2.addEventListener("change", () => {
     }
 })
 //Sort by Price
-function sortPriceFunction(){
-        //grab the array with all the prices
-        //const prices = elem.price;
-        const prices = document.querySelectorAll(".product-section");
-        const sortButton = document.querySelector(".sort-button");
-        sortButton.addEventListener("click", () => {
-            //store prices from the nodeList into the array
-            let asArray = [...prices];
+function sortPriceFunction() {
+    //grab the array with all the prices
+    //const prices = elem.price;
+    const prices = document.querySelectorAll(".product-section");
+    const sortButton = document.querySelector(".sort-button");
+    sortButton.addEventListener("click", () => {
+        //store prices from the nodeList into the array
+        let asArray = [...prices];
 
-            asArray.sort(function(a, b){return a.dataset.price - b.dataset.price});
-            console.log(asArray)
+        asArray.sort(function (a, b) {
+            return a.dataset.price - b.dataset.price
+        });
+        console.log(asArray)
 
-            asArray.forEach(el=>{
-                console.log(el.dataset)
-                document.querySelector("#" + el.dataset.category).appendChild(el);
-            })
+        asArray.forEach(el => {
+            console.log(el.dataset)
+            document.querySelector("#" + el.dataset.category).appendChild(el);
         })
+    })
 }
-
