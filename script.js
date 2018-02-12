@@ -32,12 +32,18 @@ function catFunction(myData) {
         clone.querySelector("section").id = elem;
         main.appendChild(clone);
 
+        //create li items
+        var li = document.createElement("li");        // Create a <li> element
+        filterDiv.appendChild(li);                    // Append <li> to <body>
+
         //Category filter
         const a = document.createElement("a");
         a.textContent = elem;
         a.href = "#sort";
         a.addEventListener("click", () => filter(elem));
-        filterDiv.appendChild(a);
+        li.appendChild(a);
+
+
 
     });
     getPlist(plistlink);
@@ -214,3 +220,4 @@ function sortPriceFunction() {
         })
     })
 }
+

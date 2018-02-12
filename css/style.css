@@ -44,6 +44,10 @@ header {
     background-size: cover;
 }
 
+
+
+/* animated header text*/
+
 nav {
     background-color: #171515;
     font-size: 30px;
@@ -186,11 +190,12 @@ p {
     color: #fff;
     padding: 0.2em;
     margin: 0.5em;
+    position: relative;
 }
 
 .filter a:hover {
     color: #fff;
-    border-bottom: 1px solid white;
+/*    border-bottom: 1px solid white;*/
 }
 
 .filter {
@@ -215,7 +220,30 @@ p {
 .filter .active{
     color: gray;
 }
+/* filter line animation */
 
+.filter li {
+    margin-bottom: 10px;
+    display: inline-block;
+}
+
+.filter a {
+    display: inline-block;
+}
+
+.filter a::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 1px;
+    background: #fff;
+    transition: width .3s;
+}
+
+.filter a:hover::after {
+    width: 100%;
+    transition: width .3s;
+}
 
 
 /*style by data category*/
