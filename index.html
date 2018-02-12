@@ -8,9 +8,13 @@
     <link href="https://fonts.googleapis.com/css?family=Poiret+One" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
-     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
-  <script>var ml = { timelines: {}};</script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+    <script>
+        var ml = {
+            timelines: {}
+        };
+    </script>
 </head>
 
 <body>
@@ -61,16 +65,92 @@
         </nav>
 
         <header id="top">
-        <h1 class="ml3">WE COOK YOU EAT</h1>
+            <h1 class="ml3">WE COOK YOU EAT</h1>
         </header>
         <div class="filter">
             <h5>Show only</h5>
             <form action="#" method="POST">
                 <div class="inline filter-sale">
                     Sale: <input type="checkbox" id="trigger" name="question">
+
+                    <div class="circle">
+                        <div class="circle--inner circle--inner__1"></div>
+                        <div class="circle--inner circle--inner__2"></div>
+                        <div class="circle--inner circle--inner__3"></div>
+                        <div class="circle--inner circle--inner__4"></div>
+                        <div class="circle--inner circle--inner__5"></div>
+                        <div class="circle--outer"></div>
+                    </div>
+                    <svg>
+    <defs>
+      <filter id="gooey">
+        <feGaussianBlur
+          in="SourceGraphic"
+          result="blur"
+          stdDeviation="3"
+        />
+        <feColorMatrix
+          in="blur"
+          mode="matrix"
+          values="
+            1 0 0 0 0
+            0 1 0 0 0
+            0 0 1 0 0
+            0 0 0 18 -7
+          "
+          result="gooey"
+        />
+        <feBlend
+          in2="gooey"
+          in="SourceGraphic"
+          result="mix"
+        />
+      </filter>
+    </defs>
+  </svg>
+
+
+
                 </div>
                 <div class="inline filter-vegi">
                     Vegetarian: <input type="checkbox" id="trigger2" name="question">
+
+                    <div class="circle circle2">
+                        <div class="circle--inner circle--inner__1"></div>
+                        <div class="circle--inner circle--inner__2"></div>
+                        <div class="circle--inner circle--inner__3"></div>
+                        <div class="circle--inner circle--inner__4"></div>
+                        <div class="circle--inner circle--inner__5"></div>
+                        <div class="circle--outer"></div>
+                    </div>
+                    <svg>
+    <defs>
+      <filter id="gooey">
+        <feGaussianBlur
+          in="SourceGraphic"
+          result="blur"
+          stdDeviation="3"
+        />
+        <feColorMatrix
+          in="blur"
+          mode="matrix"
+          values="
+            1 0 0 0 0
+            0 1 0 0 0
+            0 0 1 0 0
+            0 0 0 18 -7
+          "
+          result="gooey"
+        />
+        <feBlend
+          in2="gooey"
+          in="SourceGraphic"
+          result="mix"
+        />
+      </filter>
+    </defs>
+  </svg>
+
                 </div>
                 <h5 class="filter-by">Category</h5>
             </form>

@@ -46,6 +46,7 @@ function catFunction(myData) {
 
 
     });
+
     getPlist(plistlink);
     document.querySelector(".filter a").classList.add("active");
 }
