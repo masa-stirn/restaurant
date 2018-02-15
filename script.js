@@ -104,6 +104,15 @@ function show(myData) {
         container.appendChild(clone);
     })
     sortPriceFunction();
+    document.querySelectorAll(".filter a").forEach(filLink => {
+        filLink.addEventListener("click", function () {
+            document.querySelector(".active").classList.remove("active");
+            filLink.classList.add("active");
+            console.log("works")
+        })
+
+
+    })
 }
 
 
@@ -114,15 +123,6 @@ function filter(myFilter) {
         } else {
             section.classList.add("hide");
         }
-    })
-    document.querySelectorAll(".filter a").forEach(filLink => {
-        filLink.addEventListener("click", function () {
-            filLink.classList.add("active");
-            console.log("works")
-        })
-        if (filLink.classList.contains("active")){
-              filLink.classList.remove("active")
-            }
     })
 }
 

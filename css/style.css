@@ -272,8 +272,8 @@ input[type=checkbox] {
     position: absolute;
     width: 20px;
     height: 20px;
-    top: 8px;
-    left: 48px;
+    top: 11px;
+    left: 47px;
     transform: translate(-50%, -50%);
     filter: url('#gooey');
     z-index: -1;
@@ -322,15 +322,15 @@ input:checked+.circle {
 }
 
 .circle--outer {
-    width: 18px;
-    height: 18px;
+    width: 16px;
+    height: 16px;
     border-radius: 100%;
     border: 1px solid white;
 }
 
 .circle--inner {
-    top: 5px;
-    left: 5px;
+    top: 4px;
+    left: 4px;
     position: absolute;
     width: 10px;
     height: 10px;
