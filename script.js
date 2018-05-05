@@ -163,7 +163,6 @@ document.querySelector(".close2").addEventListener("click", x => {
 
 });
 
-
 //Sale filter
 const checkbox = document.querySelector("#trigger");
 checkbox.addEventListener("change", () => {
@@ -209,16 +208,22 @@ function sortPriceFunction() {
     sortButton.addEventListener("click", () => {
         //store prices from the nodeList into the array
         let asArray = [...prices];
-
         asArray.sort(function (a, b) {
             return a.dataset.price - b.dataset.price
         });
         console.log(asArray)
-
         asArray.forEach(el => {
             console.log(el.dataset)
             document.querySelector("#" + el.dataset.category).appendChild(el);
         })
     })
 }
+
+// on click fold and unfold the menu
+/*menu*/
+document.querySelector(".fold").addEventListener("click", ()=> {document.querySelector(".filter-box").classList.toggle("slideMeRight");
+
+
+                                                 })
+
 

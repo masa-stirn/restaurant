@@ -49,8 +49,9 @@ header {
 
 nav {
     background-color: #171515;
-    font-size: 30px;
+    font-size: 20px;
     height: 50px;
+    padding-top: 10px;
 }
 
 nav a {
@@ -81,7 +82,11 @@ a:hover {
 }
 
 h1 {
-    font-size: 36px;
+    font-size: 56px;
+    padding: 10px;
+}
+h1 span {
+    margin-left: 150px;
 }
 
 h3 {
@@ -183,7 +188,6 @@ p {
 /* filter style*/
 
 .filter-sale {
-    margin-top: 1em;
     position: relative;
 }
 
@@ -203,14 +207,80 @@ p {
     /*    border-bottom: 1px solid white;*/
 }
 
-.filter {
-    margin-top: 1.5em;
+.filter1 {
+/*position: fixed; */
+    background-color: #171515;
+    color: #fff;
+    padding: .5em;
+    border-radius: 3px;
+    z-index: 100;
+    display: inline-block;
+    float: left;
+}
+.filter1 h5{
+    margin: 0;
+}
+.left{
+    display: inline-block;
+    /* float: left; */
+    padding: 0.5em;
+    position: fixed;
+    margin-left: 80px;
+}
+.filter{
+/*position: fixed;*/
+    top: 50vh;
+    right: 0;
+    box-shadow: 10px 10px 10px #333;
     background-color: #171515;
     color: #fff;
     padding: 1em;
     border-radius: 3px;
-    z-index: -10;
-    position: relative;
+    z-index: 100;
+    padding-left: 4em;
+    height: 30px;
+}
+.fold{
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: #000;
+    width: 25px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    height: 30vh;
+
+}
+.fold p{
+    color: #fff;
+    margin:0;
+    padding: 5px;
+    display: flex;
+}
+.filter-box{
+        /* height: 100%; */
+    width: 50vw;
+    top: 50vh;
+    right: 0;
+    position: fixed;
+    transition: 1s;
+    opacity: .96;
+    z-index: 1000;
+    height: 30vh;
+}
+.filter-box{
+
+}
+
+.slideMeRight{
+    animation: slideMeRight 1s ease forwards;
+}
+@keyframes slideMeRight {
+    to {
+        width: 25px;
+    }
 }
 
 .filter h5 {
@@ -882,5 +952,5 @@ footer {
 }
 
 .inline {
-    display: inline;
+/*    display: inline;*/
 }
